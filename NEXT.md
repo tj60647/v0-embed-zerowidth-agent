@@ -1,24 +1,30 @@
 # Next
 
-Updated: 2026-11-22
+Updated: 2026-11-25
 
 ## Where it stands
 
-A small React chat agent with a serverless proxy to the zerowidth API, made to deploy on Vercel and be embedded in another site, such as a Google Site, through an iframe. The deployed page still answers at v0-embed-zerowidth-agent.vercel.app. It was built and tuned between 2 and 6 March 2025, and nothing has changed since.
+ELIZA, a recreation of Joseph Weizenbaum's 1960s ELIZA running the DOCTOR script. Built 2 to 6 March 2025 as the sample agent for the Union College course History and Future of Technology Innovation in the Bay Area (Winter 2025). The chat page still publishes at eliza.aroughidea.com, but it does not answer: `pages/api/proxy.js` sends every message to a ZeroWidth agent, and ZeroWidth is gone. The agent's system instructions and knowledge base lived in ZeroWidth, not here. The owner decided on 2026-11-25 to rebuild it.
+
+What survives of the agent:
+- `config/config.js`: the opening line ("HOW DO YOU DO. PLEASE STATE YOUR PROBLEM.") and the suggested prompts.
+- The Google Doc "Embedding an Agent in a website" (March 2025): the request and reply shape. Each reply was JSON with `response` (in capitals), `reasoning` and `references`; the recorded reply cited Weizenbaum 1976, Turkle 2011 and Carr 2010.
+- Photos of the ELIZA exhibit, 21 February 2025, in Drive: the 1966 transcript, Norbert Landsteiner's 2005 implementation, and a Weizenbaum quote.
 
 ## Next step
 
-Nothing planned. Decide whether to keep it as it is, archive it, or start it again.
+Rebuild the agent without ZeroWidth: replace the ZeroWidth call in `pages/api/proxy.js` with one this repository controls, keep its instructions and knowledge in the repository, and keep the reply shape above, so eliza.aroughidea.com answers again. Use the owner's notes if he finds them.
 
 ## After that
 
-- None.
+- Remove ZeroWidth from the README, `.env` names and comments.
+- Rename the repository (the owner asked on 2026-11-25), then update the register to the new name.
 
 ## Blocked or waiting
 
-- None.
+- The owner is looking for his notes: the original system instructions and knowledge base.
 
 ## Open questions
 
-- Is the embedded agent still in use anywhere, and does the zerowidth endpoint in `config/config.js` still answer?
-- This plan was drafted by Claude on 2026-11-22 from the code and its history. Is the next step right?
+- Should the rebuild be a language model playing ELIZA, as the ZeroWidth agent was, or Weizenbaum's own DOCTOR script as he published it in 1966 (keywords, decomposition and reassembly rules), or both side by side?
+- The new name for the repository.
